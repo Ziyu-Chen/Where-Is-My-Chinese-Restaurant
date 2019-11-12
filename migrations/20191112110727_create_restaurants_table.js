@@ -6,9 +6,9 @@ exports.up = function(knex, Promise) {
 
     table.text("address");
 
-    table.text("city_id");
+    table.integer("city_id");
 
-    table.text("state_id");
+    table.integer("state_id");
 
     table.text("postal_code");
 
