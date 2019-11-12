@@ -4,7 +4,9 @@ import { createStore, applyMiddleware } from "redux";
 const initialState = {
   states: [],
   cities: [],
-  restaurants: []
+  restaurants: [],
+  selectedCity: null,
+  selectedState: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,21 +16,45 @@ const reducer = (state = initialState, action) => {
       return {
         states: action.states,
         cities: state.cities,
-        restaurants: state.restaurants
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity
       };
     }
     case "SET_CITIES": {
       return {
         states: state.states,
         cities: action.cities,
-        restaurants: state.restaurants
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity
       };
     }
     case "SET_RESTAURANTS": {
       return {
         states: state.states,
         cities: state.cities,
-        restaurants: action.restaurants
+        restaurants: action.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity
+      };
+    }
+    case "SELECT_STATE": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: action.stateId,
+        selectedCity: state.selectedCity
+      };
+    }
+    case "SELECT_CITY": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: action.cityId
       };
     }
     default: {

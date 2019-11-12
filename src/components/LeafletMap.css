@@ -7,3 +7,7 @@
   background: transparent;
   border: none;
 }
+
+.leaflet-marker-pane {
+  background-image: url(../assets/marker.png);
+}

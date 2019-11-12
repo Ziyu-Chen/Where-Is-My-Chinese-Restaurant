@@ -22,4 +22,18 @@ describe("#Server", () => {
       });
     });
   });
+  // describe("/api/restaurants/:string endpoint", () => {
+  //   it("gets a filtered list of restaurants", async () => {
+  //     const res = await request.get("/api/restaurants/S1");
+  //     console.log(JSON.parse(res.text)[0]);
+  //     expect(JSON.parse(res.text)[0]).to.include({
+  //       business_id: "44YFU284Z3KDEy25QyVoUw",
+  //       name: "Nee House Chinese Restaurant",
+  //       address: "13843 N Tatum Blvd, Ste 15",
+  //       city: "Phoenix",
+  //       state: "AZ",
+  //       postal_code: "85032"
+  //     });
+  //   });
+  // });
 });

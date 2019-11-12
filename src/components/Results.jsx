@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 const Results = props => (
   <div id="results">
+    <div id="number-of-results">
+      {"WE FOUND " + props.restaurants.length + " RESTAURANT(S)"}
+    </div>
     {props.restaurants.map((restaurant, index) => (
       <div className="restaurant">
         <div className="name">{restaurant.name}</div>

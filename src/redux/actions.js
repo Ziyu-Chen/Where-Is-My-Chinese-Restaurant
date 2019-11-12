@@ -15,25 +15,43 @@ const setRestaurants = restaurants => ({
   restaurants
 });
 
+export const selectState = stateId => ({
+  type: "SELECT_STATE",
+  stateId
+});
+
+export const selectCity = cityId => ({
+  type: "SELECT_CITY",
+  cityId
+});
+
 const apologize = err => ({ type: "SORRY", err });
 
 export const getAllRestaurants = async dispatch => {
   try {
-    const { data: restaurants } = await axios.get(
-      "http://localhost:9000/api/restaurants"
-    );
-    console.log(restaurants);
+    const { data: restaurants } = await axios.get("/api/restaurants");
     return dispatch(setRestaurants(restaurants));
   } catch (err) {
     return dispatch(apologize(err));
   }
 };
 
+export const getSomeRestaurants = string => {
+  return async dispatch => {
+    try {
+      const { data: restaurants } = await axios.get(
+        `/api/restaurants/${string}`
+      );
+      return dispatch(setRestaurants(restaurants));
+    } catch (err) {
+      return dispatch(apologize(err));
+    }
+  };
+};
+
 export const getAllStates = async dispatch => {
   try {
-    const { data: states } = await axios.get(
-      "http://localhost:9000/api/states"
-    );
+    const { data: states } = await axios.get("/api/states");
     return dispatch(setStates(states));
   } catch (err) {
     return dispatch(apologize(err));
@@ -42,9 +60,7 @@ export const getAllStates = async dispatch => {
 
 export const getAllCities = async dispatch => {
   try {
-    const { data: cities } = await axios.get(
-      "http://localhost:9000/api/cities"
-    );
+    const { data: cities } = await axios.get("/api/cities");
     return dispatch(setCities(cities));
   } catch (err) {
     return dispatch(apologize(err));
