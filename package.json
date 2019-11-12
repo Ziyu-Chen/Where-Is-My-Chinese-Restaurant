@@ -26,7 +26,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "migrate:make": ""
+    "migrate:make": "knex migrate:make --knexfile server/knexfile.js",
+    "migrate": "knex migrate:latest --knexfile server/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile server/knexfile.js",
+    "rollback:all": "knex migrate:rollback --knexfile server/knexfile.js --all"
   },
   "eslintConfig": {
     "extends": "react-app"
