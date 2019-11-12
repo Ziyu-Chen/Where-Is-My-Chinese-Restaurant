@@ -51,6 +51,8 @@ app.get("/api/restaurants/:string", async (req, res) => {
     const filters = parser(string);
     let state = null;
     let city = null;
+    const takeOut = filters.takeOut === true ? true : false;
+    const parking = filters.parking === true ? true : false;
     if (filters.stateId)
       state = await db("states")
         .select("name")
@@ -59,13 +61,13 @@ app.get("/api/restaurants/:string", async (req, res) => {
       city = await db("cities")
         .select("name")
         .where({ id: filters.cityId });
-    console.log(state);
-    console.log(city);
     const restaurants = await db("restaurants")
       .select()
       .where(builder => {
         if (state !== null) builder.where({ state: state[0].name });
         if (city !== null) builder.where({ city: city[0].name });
+        if (takeOut) builder.where({ has_take_out: true });
+        if (parking) builder.where({ has_parking_space: true });
       });
     console.log(restaurants);
     res.json(restaurants);
@@ -80,6 +82,8 @@ const parser = string => {
   string.split(":").forEach(param => {
     if (param[0] === "S") filters.stateId = Number(param.slice(1));
     if (param[0] === "C") filters.cityId = Number(param.slice(1));
+    if (param === "T") filters.takeOut = true;
+    if (param === "P") filters.parking = true;
   });
   return filters;
 };

@@ -25,6 +25,14 @@ export const selectCity = cityId => ({
   cityId
 });
 
+export const clickTakeOut = () => ({
+  type: "CLICK_TAKEOUT"
+});
+
+export const clickParking = () => ({
+  type: "CLICK_PARKING"
+});
+
 const apologize = err => ({ type: "SORRY", err });
 
 export const getAllRestaurants = async dispatch => {
@@ -39,6 +47,7 @@ export const getAllRestaurants = async dispatch => {
 export const getSomeRestaurants = string => {
   return async dispatch => {
     try {
+      console.log(string);
       const { data: restaurants } = await axios.get(
         `/api/restaurants/${string}`
       );

@@ -4,7 +4,7 @@ import { selectState, selectCity } from "../../redux/actions";
 
 const Locations = props => {
   return (
-    <div id="Locations">
+    <div id="locations">
       <div id="states">
         <select
           className="state-options"
