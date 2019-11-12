@@ -1,14 +1,14 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("restaurants", (table) => {
+  return knex.schema.createTable("restaurants", table => {
     table.text("id").primary();
 
-    table.text("name")
+    table.text("name");
 
     table.text("address");
 
-    table.text("city");
+    table.text("city_id");
 
-    table.text("state");
+    table.text("state_id");
 
     table.text("postal_code");
 
