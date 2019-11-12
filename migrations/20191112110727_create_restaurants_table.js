@@ -41,6 +41,8 @@ exports.up = function(knex, Promise) {
     table.boolean("casual");
 
     table.text("categories");
+
+    table.text("photo_id");
   });
 };
 
