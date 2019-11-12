@@ -33,6 +33,11 @@ export const clickParking = () => ({
   type: "CLICK_PARKING"
 });
 
+export const clickAmbience = id => ({
+  type: "CLICK_AMBIENCE",
+  id: Number(id)
+});
+
 const apologize = err => ({ type: "SORRY", err });
 
 export const getAllRestaurants = async dispatch => {

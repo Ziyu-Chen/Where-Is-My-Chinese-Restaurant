@@ -8,7 +8,8 @@ const initialState = {
   selectedState: null,
   selectedCity: null,
   selectedTakeOut: false,
-  selectedParking: false
+  selectedParking: false,
+  selectedAmbiences: [false, false, false, false, false, false]
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "SET_CITIES": {
@@ -33,7 +35,8 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "SET_RESTAURANTS": {
@@ -44,7 +47,8 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "SELECT_STATE": {
@@ -55,7 +59,8 @@ const reducer = (state = initialState, action) => {
         selectedState: action.stateId,
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "SELECT_CITY": {
@@ -66,7 +71,8 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: action.cityId,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "CLICK_TAKEOUT": {
@@ -77,7 +83,8 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: state.selectedCity,
         selectedTakeOut: !state.selectedTakeOut,
-        selectedParking: state.selectedParking
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
       };
     }
     case "CLICK_PARKING": {
@@ -88,7 +95,24 @@ const reducer = (state = initialState, action) => {
         selectedState: state.selectedState,
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
-        selectedParking: !state.selectedParking
+        selectedParking: !state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences
+      };
+    }
+    case "CLICK_AMBIENCE": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity,
+        selectedTakeOut: state.selectedTakeOut,
+        selectedParking: state.selectedParking,
+        selectedAmbiences: [
+          ...state.selectedAmbiences.slice(0, action.id - 1),
+          !state.selectedAmbiences[action.id - 1],
+          ...state.selectedAmbiences.slice(action.id)
+        ]
       };
     }
     default: {

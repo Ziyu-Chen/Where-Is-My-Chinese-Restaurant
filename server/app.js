@@ -51,8 +51,6 @@ app.get("/api/restaurants/:string", async (req, res) => {
     const filters = parser(string);
     let state = null;
     let city = null;
-    const takeOut = filters.takeOut === true ? true : false;
-    const parking = filters.parking === true ? true : false;
     if (filters.stateId)
       state = await db("states")
         .select("name")
@@ -66,8 +64,14 @@ app.get("/api/restaurants/:string", async (req, res) => {
       .where(builder => {
         if (state !== null) builder.where({ state: state[0].name });
         if (city !== null) builder.where({ city: city[0].name });
-        if (takeOut) builder.where({ has_take_out: true });
-        if (parking) builder.where({ has_parking_space: true });
+        if (filters.takeOut) builder.where({ has_take_out: true });
+        if (filters.parking) builder.where({ has_parking_space: true });
+        if (filters.romantic) builder.where({ romantic: true });
+        if (filters.intimate) builder.where({ intimate: true });
+        if (filters.classy) builder.where({ classy: true });
+        if (filters.trendy) builder.where({ trendy: true });
+        if (filters.upscale) builder.where({ upscale: true });
+        if (filters.casual) builder.where({ casual: true });
       });
     console.log(restaurants);
     res.json(restaurants);
@@ -84,6 +88,14 @@ const parser = string => {
     if (param[0] === "C") filters.cityId = Number(param.slice(1));
     if (param === "T") filters.takeOut = true;
     if (param === "P") filters.parking = true;
+    if (param[0] === "A") {
+      if (param[1] === "1") filters.romantic = true;
+      if (param[1] === "2") filters.intimate = true;
+      if (param[1] === "3") filters.classy = true;
+      if (param[1] === "4") filters.trendy = true;
+      if (param[1] === "5") filters.upscale = true;
+      if (param[1] === "6") filters.casual = true;
+    }
   });
   return filters;
 };

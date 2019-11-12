@@ -1,6 +1,7 @@
 import React from "react";
 import Locations from "./filters/Locations.jsx";
 import Services from "./filters/Services.jsx";
+import Ambiences from "./filters/Ambiences";
 import { getSomeRestaurants } from "../redux/actions";
 import { connect } from "react-redux";
 
@@ -9,6 +10,7 @@ const Filters = props => {
     <div id="filters">
       <Locations />
       <Services />
+      <Ambiences />
       <button
         type="button"
         onClick={() => {
@@ -19,6 +21,10 @@ const Filters = props => {
             params.push("C" + String(props.selectedCity));
           if (props.selectedTakeOut) params.push("T");
           if (props.selectedParking) params.push("P");
+          console.log(props.selectedAmbiences);
+          for (let i = 0; i < props.selectedAmbiences.length; i++) {
+            if (props.selectedAmbiences[i]) params.push(`A${i + 1}`);
+          }
           return props.getSomeRestaurants(params.join(":"));
         }}
       >
@@ -33,7 +39,8 @@ const mapStateToProps = state => {
     selectedState: state.selectedState,
     selectedCity: state.selectedCity,
     selectedTakeOut: state.selectedTakeOut,
-    selectedParking: state.selectedParking
+    selectedParking: state.selectedParking,
+    selectedAmbiences: state.selectedAmbiences
   };
 };
 
