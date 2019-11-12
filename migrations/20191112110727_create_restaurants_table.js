@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("restaurants", table => {
-    table.text("id").primary();
+    table.increments("id").primary();
 
     table.text("name");
 
@@ -43,6 +43,8 @@ exports.up = function(knex, Promise) {
     table.text("categories");
 
     table.text("photo_id");
+
+    table.text("business_id");
   });
 };
 
