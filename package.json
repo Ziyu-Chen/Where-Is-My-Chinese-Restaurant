@@ -38,7 +38,8 @@
     "migrate:make": "knex migrate:make --knexfile server/knexfile.js",
     "migrate": "knex migrate:latest --knexfile server/knexfile.js",
     "rollback": "knex migrate:rollback --knexfile server/knexfile.js",
-    "rollback:all": "knex migrate:rollback --knexfile server/knexfile.js --all"
+    "rollback:all": "knex migrate:rollback --knexfile server/knexfile.js --all",
+    "heroku-postbuild": "yarn rollback && yarn migrate && yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,5 +55,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:9000"
 }
