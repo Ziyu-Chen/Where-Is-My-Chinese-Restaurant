@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { clickAmbience } from "../../redux/actions";
+import "./Ambiences.css";
 
 const Ambiences = props => {
   return (
@@ -11,42 +12,42 @@ const Ambiences = props => {
           value="1"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        ROMANTIC
+        Romantic
         <br />
         <input
           type="checkbox"
           value="2"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        INTIMATE
+        Intimate
         <br />
         <input
           type="checkbox"
           value="3"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        CLASSY
+        Classy
         <br />
         <input
           type="checkbox"
           value="4"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        TRENDY
+        Trendy
         <br />
         <input
           type="checkbox"
           value="5"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        UPSCALE
+        Upscale
         <br />
         <input
           type="checkbox"
           value="6"
           onChange={e => props.clickAmbience(e.target.value)}
         />{" "}
-        CASUAL
+        Casual
         <br />
       </form>
     </div>

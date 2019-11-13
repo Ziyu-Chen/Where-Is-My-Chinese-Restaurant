@@ -4,6 +4,7 @@ import Services from "./filters/Services.jsx";
 import Ambiences from "./filters/Ambiences";
 import { getSomeRestaurants } from "../redux/actions";
 import { connect } from "react-redux";
+import "./Filters.css";
 
 const Filters = props => {
   return (

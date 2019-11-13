@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import "./Results.css";
 
 const Results = props => (
   <div id="results">
@@ -11,7 +12,7 @@ const Results = props => (
         <div className="name">{restaurant.name}</div>
         <div className="address">{restaurant.address}</div>
         <div className="city">{restaurant.city}</div>
-        <div className="state">{restaurant.state}</div>
+        <div className="state">{restaurant.state}</div>      
       </div>
     ))}
   </div>

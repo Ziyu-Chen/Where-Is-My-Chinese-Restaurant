@@ -1,0 +1,14 @@
+body{
+  background-image: url(./background.jpg);
+}
+
+#title{
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div{
+  font-family: "Times New Roman", Times, serif;
+}

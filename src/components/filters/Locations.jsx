@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { selectState, selectCity } from "../../redux/actions";
+import "./Locations.css";
 
 const Locations = props => {
   return (

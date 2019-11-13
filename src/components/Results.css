@@ -1,0 +1,20 @@
+#number-of-results {
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: larger;
+}
+
+
+
+.restaurant {
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border:3px solid gold;
+}

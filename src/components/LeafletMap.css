@@ -1,6 +1,7 @@
 .leaflet-container {
-  height: 600px;
-  width: 100%;
+  margin: auto;
+  height: 400px;
+  width: 80%;
 }
 
 .leaflet-div-icon {
@@ -9,5 +10,5 @@
 }
 
 .leaflet-marker-pane {
-  background-image: url(../assets/marker.png);
+  background-image: url(../assets/icon.png);
 }
