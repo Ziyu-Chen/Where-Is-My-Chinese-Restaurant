@@ -43,20 +43,22 @@ const Ambiences = props => {
             onChange={e => props.clickAmbience(e.target.value)}
           />
         </div>
+        <div className="ambience-selector">
+          <label for="upscale">Upscale</label>
         <input
           type="checkbox"
           value="5"
+          name="upscale"
           onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Upscale
-        <br />
+        /></div>
+        <div className="ambience-selector">
+          <label for="casual">Casual</label>
         <input
           type="checkbox"
           value="6"
           onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Casual
-        <br />
+        /></div>
+        <br/>
       </form>
     </div>
   );

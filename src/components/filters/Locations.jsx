@@ -37,6 +37,7 @@ const Locations = props => {
                 })
                 .map(city => <option value={city.id}>{city.name}</option>)}
         </select>
+        <br />
       </div>
     </div>
   );
