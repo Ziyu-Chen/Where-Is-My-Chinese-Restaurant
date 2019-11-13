@@ -9,7 +9,11 @@ const initialState = {
   selectedCity: null,
   selectedTakeOut: false,
   selectedParking: false,
-  selectedAmbiences: [false, false, false, false, false, false]
+  selectedAmbiences: [false, false, false, false, false, false],
+  starMin: 3,
+  starMax: 5,
+  priceMin: 1,
+  priceMax: 4
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,7 +28,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "SET_CITIES": {
@@ -36,7 +44,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "SET_RESTAURANTS": {
@@ -48,7 +60,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "SELECT_STATE": {
@@ -60,7 +76,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "SELECT_CITY": {
@@ -72,7 +92,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: action.cityId,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "CLICK_TAKEOUT": {
@@ -84,7 +108,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: !state.selectedTakeOut,
         selectedParking: state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "CLICK_PARKING": {
@@ -96,7 +124,11 @@ const reducer = (state = initialState, action) => {
         selectedCity: state.selectedCity,
         selectedTakeOut: state.selectedTakeOut,
         selectedParking: !state.selectedParking,
-        selectedAmbiences: state.selectedAmbiences
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
       };
     }
     case "CLICK_AMBIENCE": {
@@ -112,7 +144,75 @@ const reducer = (state = initialState, action) => {
           ...state.selectedAmbiences.slice(0, action.id - 1),
           !state.selectedAmbiences[action.id - 1],
           ...state.selectedAmbiences.slice(action.id)
-        ]
+        ],
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
+      };
+    }
+    case "CHANGE_STAR_MIN": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity,
+        selectedTakeOut: state.selectedTakeOut,
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: action.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
+      };
+    }
+    case "CHANGE_STAR_MAX": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity,
+        selectedTakeOut: state.selectedTakeOut,
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: action.starMax,
+        priceMin: state.priceMin,
+        priceMax: state.priceMax
+      };
+    }
+    case "CHANGE_PRICE_MIN": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity,
+        selectedTakeOut: state.selectedTakeOut,
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: action.priceMin,
+        priceMax: state.priceMax
+      };
+    }
+    case "CHANGE_PRICE_MAX": {
+      return {
+        states: state.states,
+        cities: state.cities,
+        restaurants: state.restaurants,
+        selectedState: state.selectedState,
+        selectedCity: state.selectedCity,
+        selectedTakeOut: state.selectedTakeOut,
+        selectedParking: state.selectedParking,
+        selectedAmbiences: state.selectedAmbiences,
+        starMin: state.starMin,
+        starMax: state.starMax,
+        priceMin: state.priceMin,
+        priceMax: action.priceMax
       };
     }
     default: {

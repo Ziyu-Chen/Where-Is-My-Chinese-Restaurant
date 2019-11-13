@@ -38,6 +38,26 @@ export const clickAmbience = id => ({
   id: Number(id)
 });
 
+export const changeStarMin = starMin => ({
+  type: "CHANGE_STAR_MIN",
+  starMin: Number(starMin)
+});
+
+export const changeStarMax = starMax => ({
+  type: "CHANGE_STAR_MAX",
+  starMin: Number(starMax)
+});
+
+export const changePriceMin = priceMin => ({
+  type: "CHANGE_PRICE_MIN",
+  starMin: Number(priceMin)
+});
+
+export const changePriceMax = priceMax => ({
+  type: "CHANGE_PRICE_MAX",
+  starMin: Number(priceMax)
+});
+
 const apologize = err => ({ type: "SORRY", err });
 
 export const getAllRestaurants = async dispatch => {
