@@ -7,10 +7,24 @@ const Services = props => {
   return (
     <div id="services">
       <form>
-        <input type="checkbox" value="1" onChange={props.clickTakeOut} /> Has
-        Take-Out Menu
-        <br />
-        <input type="checkbox" value="2" onChange={props.clickParking} /> Provides Parking Spaces
+        <div className="takeout">
+          <label for="takeout">Has Take-Out Menu</label>
+          <input
+            type="checkbox"
+            value="1"
+            name="takeout"
+            onChange={props.clickTakeOut}
+          />
+        </div>
+        <div className="takeout">
+          <label for="takeout">Provides Parking Spaces</label>
+          <input
+            type="checkbox"
+            value="2"
+            name="parking"
+            onChange={props.clickParking}
+          />
+        </div>
         <br />
       </form>
     </div>

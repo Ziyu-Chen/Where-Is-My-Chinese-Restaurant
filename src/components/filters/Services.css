@@ -1,0 +1,11 @@
+input {
+  float: left;
+  flex-direction: row;
+}
+
+label {
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}

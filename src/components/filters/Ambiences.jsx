@@ -7,34 +7,42 @@ const Ambiences = props => {
   return (
     <div id="ambiences">
       <form>
-        <input
-          type="checkbox"
-          value="1"
-          onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Romantic
-        <br />
-        <input
-          type="checkbox"
-          value="2"
-          onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Intimate
-        <br />
-        <input
-          type="checkbox"
-          value="3"
-          onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Classy
-        <br />
-        <input
-          type="checkbox"
-          value="4"
-          onChange={e => props.clickAmbience(e.target.value)}
-        />{" "}
-        Trendy
-        <br />
+        <div className="ambience-selector">
+          <label for="romantic">Romantic</label>
+          <input
+            type="checkbox"
+            value="1"
+            name="romantic"
+            onChange={e => props.clickAmbience(e.target.value)}
+          />
+        </div>
+        <div className="ambience-selector">
+          <label for="intimate">Intimate</label>
+          <input
+            type="checkbox"
+            value="2"
+            name="intimate"
+            onChange={e => props.clickAmbience(e.target.value)}
+          />
+        </div>
+        <div className="ambience-selector">
+          <label for="classy">Classy</label>
+          <input
+            type="checkbox"
+            value="3"
+            name="classy"
+            onChange={e => props.clickAmbience(e.target.value)}
+          />
+        </div>
+        <div className="ambience-selector">
+          <label for="trendy">Trendy</label>
+          <input
+            type="checkbox"
+            value="4"
+            name="trendy"
+            onChange={e => props.clickAmbience(e.target.value)}
+          />
+        </div>
         <input
           type="checkbox"
           value="5"
