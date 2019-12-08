@@ -21,15 +21,19 @@ Starts a hot-reloading backend server in http://localhost:9000
 ## Features
 
 ### Filter by State
+Users can filter restaurants by state.
 
 ### Filter by City
+Users can filter restaurants by city. 
 
-### Filter by Whether a Restaurant Has a Take-out Menu
+### Take-out Menu Filter
+Users can look for restaurants that have a take-out menu.
 
-### Filter by Whether a Restaurant Provides Parking Spaces
+### Parking Spaces Filter
+Users can look for restaurants that provide parking spaces.
 
 ### Filter by Ambience
+Users can search for restaurants of a certain atmosphere
 
-### Show Information of a Restaurant in the Result Section
-
-### Show Pictures in the Result Section
+### Result Section
+The result section showcases the information about each restaurant that fits the criteria specifed by users.
